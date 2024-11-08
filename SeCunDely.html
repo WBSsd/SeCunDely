@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>SeCunDely</title>
+        <link rel="icon" type="image/x-icon" href="https://blobby-boi.github.io/BlobbypassXSS/favicon.png">
+
+        <style>
+            .header {
+                padding: 10px 20px;
+                text-align: center;
+                background: #343a40;
+                color: #fff;
+                font-size: 12.5;
+                display: flex;
+                justify-content: center;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .footer {
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                position: fixed;
+                text-align: center;
+                background: #343a40;
+                color: #fff;
+                font-size: 12.5;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .logo {
+                width: 60px;
+                height: 60px;
+                margin-right: 10px;
+            }
+            body {
+                font-family: 'Valera Round', sans-serif;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 12;
+                margin: 0;
+            }
+            button {
+                font-family: 'Varela Round', sans-serif;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                margin-top: 10px;
+                transition: background-color 0.3s ease;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 150px auto 0 auto;
+                padding: 20px;
+                text-align: center;
+                background: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+                border-radius: 8px;
+            }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(66,66,66,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            position: relative;
+            background: white;
+            padding: 1em 2em;
+            border-radius: 4px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal:target {
+            display: flex;
+        }
+
+        .ht {
+            color: inherit;
+            text-decoration: none;
+            cursor: default;
+        }
+
+        .htwc {
+            color: inherit;
+        }
+
+        .back-button {
+            color: black;
+            text-decoration: none;
+            font-size: 25px;
+            text-align: left;
+            position: fixed;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+        .back-button:hover {
+            color: grey;
+            text-decoration: none;
+            font-size: 25px;
+            text-align: left;
+            position: fixed;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .run-topright {
+            background: white;
+            position: absolute;
+			top: 0;
+			right: 0;
+            padding: 1em 2em;
+            border-radius: 4px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img src="https://blobby-boi.github.io/BlobbypassXSS/favicon.png" alt="logo" class="logo">
+            <br>
+            <h1>SeCunDely</h1>
+            <br>
+            <i style="color: blue; font-size: 10px;">v.1.0.</i>
+        </div>
+        <a id="back" class="back-button" href="javascript:open_menu()">&#11013;</a>
+        <div class="footer">
+            <br>
+			<i id="tip">tip: go to menu, then settings to edit ping settings.</i><br><br>
+        </div>
+        <div class="container">
+            <div id="action">
+                <p>SeCunDely is a mass url pinger that can be used for WBS/CBG<a class="htwc" href="javascript:ooopen();">.</a></p>
+                <br>
+                <p>Select action:</p>
+                <a href="#run"><button onclick="run_button()">Run</button></a>
+                <button onclick="open_menu()">Open Menu</button>
+            </div>
+            <div id="menu">
+                <p>Menu</p>
+                <a href="#media"><button>Help</button></a>
+                <a href="#settings"><button onclick="settings_button()">Settings</button></a>
+            </div>
+
+    <div id="run" class="modal">
+        <div id="rtrt" class="run-topright">
+			<p>^</p>
+            <a href="javascript:runcbt()">Turn off popup blocking</a>
+        </div>
+        <div class="content">
+			<div id="run_cb_tutorial" class="modal">
+				<div class="content">
+					<img id="1" src="https://raw.githubusercontent.com/WBSsd/SeCunDely/refs/heads/main/1.jpg" style="width: 50%;">
+					<img id="2" src="https://raw.githubusercontent.com/WBSsd/SeCunDely/refs/heads/main/2.jpg" style="width: 50%;">
+					<img id="3" src="https://raw.githubusercontent.com/WBSsd/SeCunDely/refs/heads/main/3.jpg" style="width: 50%;">
+					<img id="4" src="https://raw.githubusercontent.com/WBSsd/SeCunDely/refs/heads/main/4.jpg" style="width: 50%;"><br>
+					<a href="javascript:slide_back();">&lt; </a><a id="run_slide_number"></a><a href="javascript:slide_forward();"> &gt;</a>
+				<a href="javascript:runcbt()" style="
+								position: absolute;
+								top: 10px;
+								right: 10px;
+								color: #fe0606;
+								font-size: 30px;
+								text-decoration: none;
+							">&times;</a>
+				</div>
+			</div>
+
+            <h3>Comfirm run:</h3>
+            <p id="crps"></p><br>
+            <i style="color: red;">WARNING: secundly <br>is a website that<br>spam pings a ip</i><br>
+            <i style="color: red; font-size: 10px;">(intended for arduino)</i><br><br>
+            <button onclick="ping()">Comfirm</button>
+        <a href="#" style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        color: #fe0606;
+                        font-size: 30px;
+                        text-decoration: none;
+                    ">&times;</a>
+        </div>
+    </div>
+
+    <div id="oopen" class="modal">
+        <div class="content">
+            <h2>Not in union community<br> and/or on personal<br> account?</h2><br>
+			<i style="font-size: 50%; color:#0051ff; top: 50px;">(slidedeck wont give access if so)</i><br><br>
+            <a href="https://docs.google.com/presentation/d/1KecN72lckzuPLBe01mvqToLjhG-p9UF-PDLVAYkEHas/edit?usp=sharing">Open public community slidedeck</a>
+        <a href="#" style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        color: #fe0606;
+                        font-size: 30px;
+                        text-decoration: none;
+                    ">&times;</a>
+        </div>
+    </div>
+
+    <div id="settings" class="modal">
+        <div class="content">
+            <label for="number of windows to open">Number of windows to open: <br></label>
+            <input type="number" id="settings_windows" name="number of windows to open" min="0" max="10000" step="1">
+            <br><label for="window urls">Window urls <br>(include http://): <br></label>
+            <input type="text" id="settings_window_urls" name="window urls">
+            <br><br><button onclick="settings_save()">Save settings</button>
+        <a href="#" style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        color: #fe0606;
+                        font-size: 30px;
+                        text-decoration: none;
+                    ">&times;</a>
+        </div>
+    </div>
+
+    <div id="media" class="modal">
+        <div class="content">
+            <div id="selectsld">
+                <p>Select media:</p>
+                <button onclick="help_howtouse()">How to use</button>
+            </div>
+            <div id="howtouse">
+                <a id="media-back" class="back-button" href="javascript:help_howtouse">&#11013;</a>
+                <iframe width="681" height="383" src="https://www.youtube.com/embed/TRSbA98O47Q" title="Fall For You - Secondhand Serenade (Lyrics) 🎵" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <i>0:33</i>
+            </div>
+            
+            <a href="#" style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        color: #fe0606;
+                        font-size: 30px;
+                        text-decoration: none;
+                    ">&times;</a>
+        </div>
+        </div>
+
+        <script>
+            var menu = document.getElementById("menu");
+            var action = document.getElementById("action");
+            var selectsld = document.getElementById("selectsld");
+            var howtouse = document.getElementById("howtouse");
+            var video = document.getElementById("video");
+            var back = document.getElementById("back");
+            var crps = document.getElementById("crps");
+            var settings_windows = document.getElementById("settings_windows");
+            var settings_window_urls = document.getElementById("settings_window_urls");
+			var run_cb_tutorial = document.getElementById("run_cb_tutorial");
+			var a = document.getElementById("1");
+            var b = document.getElementById("2");
+            var c = document.getElementById("3");
+            var d = document.getElementById("4");
+			var run_slide_number = document.getElementById("run_slide_number");
+			a.style.display = "block";
+			b.style.display = "none";
+			c.style.display = "none";
+			d.style.display = "none";
+            selectsld.style.display = "block";
+            howtouse.style.display = "none";
+			run_cb_tutorial.style.display = "none";
+            back.style.display = "none";
+            action.style.display = "block";
+            menu.style.display = "none";
+            let dumytab;
+            window.location.href = "#";
+            let ping_windows = 0;
+            let ping_url = "https://127.0.0.0:0000";
+			let run_onslide = 1;
+            
+            function ping() {
+                for(let i = 1; i <= ping_windows; i++) {
+                    window.open(ping_url, '_blank', 'width=400, height=450 top=75');
+                }
+            }
+
+			function slide_forward() {
+				if(run_onslide < 4) {
+					run_onslide += 1
+				}
+
+				run_slide_number.innerHTML = run_onslide + "/4"
+
+				if(run_onslide == 1) {
+					a.style.display = "block";
+					b.style.display = "none";
+					c.style.display = "none";
+					d.style.display = "none";
+				}
+				if(run_onslide == 2) {
+					a.style.display = "none";
+					b.style.display = "block";
+					c.style.display = "none";
+					d.style.display = "none";
+				}
+				if(run_onslide == 3) {
+					a.style.display = "none";
+					b.style.display = "none";
+					c.style.display = "block";
+					d.style.display = "none";
+				}
+				if(run_onslide == 4) {
+					a.style.display = "none";
+					b.style.display = "none";
+					c.style.display = "none";
+					d.style.display = "block";
+				}
+			}
+			function slide_back() {
+				if(run_onslide > 1) {
+					run_onslide -= 1
+				}
+
+				run_slide_number.innerHTML = run_onslide + "/4"
+
+				if(run_onslide == 1) {
+					a.style.display = "block";
+					b.style.display = "none";
+					c.style.display = "none";
+					d.style.display = "none";
+				}
+				if(run_onslide == 2) {
+					a.style.display = "none";
+					b.style.display = "block";
+					c.style.display = "none";
+					d.style.display = "none";
+				}
+				if(run_onslide == 3) {
+					a.style.display = "none";
+					b.style.display = "none";
+					c.style.display = "block";
+					d.style.display = "none";
+				}
+				if(run_onslide == 4) {
+					a.style.display = "none";
+					b.style.display = "none";
+					c.style.display = "none";
+					d.style.display = "block";
+				}
+			}
+
+            
+            function open_menu() {
+                if (action.style.display == "block") {
+                    action.style.display = "none";
+                    menu.style.display = "block";
+                    back.style.display = "block";
+                } else {
+                    action.style.display = "block";
+                    menu.style.display = "none";
+                    back.style.display = "none";
+                }
+            }
+            
+            function help_howtouse() {
+                if (selectsld.style.display == "block") {
+                    selectsld.style.display = "none";
+                    howtouse.style.display = "block";
+                } else {
+                    selectsld.style.display = "block";
+                    howtouse.style.display = "none";
+                }
+            }
+            function skipto() {
+                video.currentTime = 30;
+            }
+
+            function settings_button() {
+                settings_windows.value = ping_windows;
+                settings_window_urls.value = ping_url;
+            }
+
+
+            function settings_save() {
+                ping_windows = settings_windows.value;
+                ping_url = settings_window_urls.value;
+            }
+
+
+            function run_button() {
+                crps.innerHTML = "number of windows to open: <br>" + ping_windows + '<br><br> window urls: <br>"' + ping_url + '"<br><br>show windows?: <br>true';
+            }
+
+
+            function ooopen() {
+                window.location.href = "#oopen";
+                window.open("https://docs.google.com/presentation/d/176DmStiGmZMVw11cxsb9YCyZ-VSngFFMv7ntuQjxg60/edit?usp=sharing", '_blank');
+            }
+
+			function runcbt() {
+				run_slide_number.innerHTML = run_onslide + "/4"
+				if(run_cb_tutorial.style.display == "block") {
+					run_cb_tutorial.style.display = "none";
+				} else {
+					run_cb_tutorial.style.display = "block";
+				}
+			}
+
+        </script>
+    </body>
+</html>
